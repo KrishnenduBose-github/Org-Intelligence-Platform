@@ -1,0 +1,13 @@
+{
+  "orgName": "Org Intelligence Platform (OIP)",
+  "edition": "Developer",
+  "features": ["EnableSetPasswordInApi", "AI", "EinsteinGPTForDevelopers"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}
