@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2026-05-10T15:06:16.000Z" hostname="https://orgfarm-ac01aa6abd-dev-ed.develop.my.salesforce.com" tests="10" failures="2"  errors="0"  time="0.85">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="10"/>
+            <property name="passing" value="8"/>
+            <property name="failing" value="2"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="80%"/>
+            <property name="failRate" value="20%"/>
+            <property name="testStartTime" value="Sun May 10 2026 8:36:16 PM"/>
+            <property name="testSetupTimeInMs" value="176"/>
+            <property name="testExecutionTime" value="0.85 s"/>
+            <property name="testTotalTime" value="1.03 s"/>
+            <property name="commandTime" value="0.36 s"/>
+            <property name="hostname" value="https://orgfarm-ac01aa6abd-dev-ed.develop.my.salesforce.com"/>
+            <property name="orgId" value="00DgL00000Nz3aaUAB"/>
+            <property name="username" value="krishnendu.bose.71c3f5093136@agentforce.com"/>
+            <property name="testRunId" value="707gL00000pSPnR"/>
+            <property name="userId" value="005gL00000GjLOrQAN"/>
+        </properties>
+        <testcase name="testIndexBySOQLApexClass" classname="OIP_MetadataIndexerServiceTest" time="0.06">
+        </testcase>
+        <testcase name="testIndexBySOQLApexTrigger" classname="OIP_MetadataIndexerServiceTest" time="0.02">
+        </testcase>
+        <testcase name="testIndexBySOQLFlow" classname="OIP_MetadataIndexerServiceTest" time="0.54">
+        </testcase>
+        <testcase name="testIndexBySOQLUnsupportedType" classname="OIP_MetadataIndexerServiceTest" time="0.07">
+        </testcase>
+        <testcase name="testIndexComponentTypesMultipleTypes" classname="OIP_MetadataIndexerServiceTest" time="0.04">
+        </testcase>
+        <testcase name="testIndexComponentTypesWithEmpty" classname="OIP_MetadataIndexerServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testIndexComponentTypesWithNull" classname="OIP_MetadataIndexerServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testUpsertIndexRecordsBulk" classname="OIP_MetadataIndexerServiceTest" time="0.04">
+            <failure message="System.AssertException: Assertion Failed: Should upsert all 200 records"><![CDATA[Class.OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsBulk: line 92, column 1]]></failure>
+        </testcase>
+        <testcase name="testUpsertIndexRecordsWithUpdate" classname="OIP_MetadataIndexerServiceTest" time="0.05">
+            <failure message="System.AssertException: Assertion Failed: Status should be updated via upsert: Expected: Deprecated, Actual: Active"><![CDATA[Class.OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsWithUpdate: line 116, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

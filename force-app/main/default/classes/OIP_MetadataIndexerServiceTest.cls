@@ -6,6 +6,7 @@ private class OIP_MetadataIndexerServiceTest {
             OIP_MetadataIndex__c idx = new OIP_MetadataIndex__c(
                 OIP_ComponentType__c = 'ApexClass',
                 OIP_FullName__c = 'TestClass',
+                OIP_CompoundKey__c = 'ApexClass||TestClass',
                 OIP_IsActive__c = true,
                 OIP_Status__c = 'Active',
                 OIP_IndexedAt__c = Datetime.now()
@@ -72,9 +73,11 @@ private class OIP_MetadataIndexerServiceTest {
     static void testUpsertIndexRecordsBulk() {
         List<OIP_MetadataIndex__c> records = new List<OIP_MetadataIndex__c>();
         for (Integer i = 0; i < 200; i++) {
+            String fname = 'BulkTestClass_' + i;
             records.add(new OIP_MetadataIndex__c(
                 OIP_ComponentType__c = 'ApexClass',
-                OIP_FullName__c = 'BulkTestClass_' + i,
+                OIP_FullName__c = fname,
+                OIP_CompoundKey__c = 'ApexClass||' + fname,
                 OIP_IsActive__c = true,
                 OIP_Status__c = 'Active',
                 OIP_IndexedAt__c = Datetime.now()
@@ -95,7 +98,7 @@ private class OIP_MetadataIndexerServiceTest {
     @IsTest
     static void testUpsertIndexRecordsWithUpdate() {
         List<OIP_MetadataIndex__c> existing = [
-            SELECT Id, OIP_ComponentType__c, OIP_FullName__c, OIP_IsActive__c, OIP_Status__c, OIP_IndexedAt__c
+            SELECT Id, OIP_ComponentType__c, OIP_FullName__c, OIP_CompoundKey__c, OIP_IsActive__c, OIP_Status__c, OIP_IndexedAt__c
             FROM OIP_MetadataIndex__c
             WHERE OIP_FullName__c = 'TestClass'
         ];
@@ -108,12 +111,12 @@ private class OIP_MetadataIndexerServiceTest {
         OIP_MetadataIndexerService.upsertIndexRecords(existing);
         Test.stopTest();
 
-        OIP_MetadataIndex__c updated = [
+        List<OIP_MetadataIndex__c> updated = [
             SELECT OIP_Status__c FROM OIP_MetadataIndex__c
             WHERE OIP_FullName__c = 'TestClass'
-            LIMIT 1
         ];
-        System.assertEquals('Deprecated', updated.OIP_Status__c, 'Status should be updated via upsert');
+        System.assertEquals(1, updated.size(), 'Should find the updated record');
+        System.assertEquals('Deprecated', updated[0].OIP_Status__c, 'Status should be updated via upsert');
     }
 
     @IsTest
