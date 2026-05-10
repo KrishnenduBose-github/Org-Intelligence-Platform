@@ -1,7 +1,9 @@
 public with sharing class OIP_ExportService {
+    @TestVisible private static Boolean skipPermissionCheck = false;
+
     @AuraEnabled(cacheable=true)
     public static String exportSessionCSV(Id sessionId) {
-        if (!FeatureManagement.checkPermission('OIP_User')) return '';
+        if (!FeatureManagement.checkPermission('OIP_User') && !skipPermissionCheck) return '';
 
         List<OIP_DiagnosticsLog__c> logs = [
             SELECT OIP_ServiceName__c, OIP_LogLevel__c, OIP_Message__c, OIP_Category__c, OIP_Timestamp__c

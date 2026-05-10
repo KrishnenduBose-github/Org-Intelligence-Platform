@@ -7,18 +7,28 @@
  */
 public with sharing class OIP_FullIndexBatch implements Database.Batchable<SObject> {
 
+    @TestVisible private static Boolean isTestMode = false;
+    @TestVisible private static List<EntityDefinition> testEntities = new List<EntityDefinition>();
+
     /**
-     * @description Returns a QueryLocator over all customizable entity definitions
+     * @description Returns an Iterable over all customizable entity definitions
      *              in the org, which will drive the component type enumeration.
+     *              Uses Iterable instead of QueryLocator because EntityDefinition
+     *              does not support queryMore().
      * @param bc  Batchable context provided by the platform
-     * @return    QueryLocator for EntityDefinition records
+     * @return    Iterable for EntityDefinition records
      */
-    public Database.QueryLocator start(Database.BatchableContext bc) {
-        return Database.getQueryLocator([
+    public Iterable<SObject> start(Database.BatchableContext bc) {
+        if (isTestMode) {
+            return (Iterable<SObject>)testEntities;
+        }
+        List<EntityDefinition> entities = [
             SELECT QualifiedApiName, NamespacePrefix, IsCustomizable
             FROM EntityDefinition
             WHERE IsCustomizable = true
-        ]);
+            LIMIT 2000
+        ];
+        return (Iterable<SObject>)entities;
     }
 
     /**
@@ -26,18 +36,17 @@ public with sharing class OIP_FullIndexBatch implements Database.Batchable<SObje
      *              component types and enqueues an OIP_ComponentTypeIndexQueueable
      *              for each one. This distributes indexing work across async jobs.
      * @param bc      Batchable context
-     * @param scope   Current batch of EntityDefinition records
+     * @param scope   Current batch of SObject records
      */
-    public void execute(Database.BatchableContext bc, List<EntityDefinition> scope) {
-        // Collect distinct component types from the entity definitions
+    public void execute(Database.BatchableContext bc, List<SObject> scope) {
         Set<String> componentTypes = new Set<String>();
-        for (EntityDefinition entity : scope) {
+        for (SObject obj : scope) {
+            EntityDefinition entity = (EntityDefinition)obj;
             if (String.isNotBlank(entity.QualifiedApiName)) {
                 componentTypes.add(entity.QualifiedApiName);
             }
         }
 
-        // Enqueue a queueable job for each component type
         for (String compType : componentTypes) {
             try {
                 System.enqueueJob(new OIP_ComponentTypeIndexQueueable(compType));
@@ -59,8 +68,6 @@ public with sharing class OIP_FullIndexBatch implements Database.Batchable<SObje
      */
     public void finish(Database.BatchableContext bc) {
         try {
-            // Placeholder: queue dependency graph builder once indexing is complete
-            // System.enqueueJob(new OIP_DependencyGraphBuilderQueueable());
             OIP_DiagnosticsLogger.log(
                 'OIP_FullIndexBatch',
                 'INFO',

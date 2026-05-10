@@ -1,4 +1,6 @@
 public with sharing class OIP_DashboardController {
+    @TestVisible private static Boolean skipPermissionCheck = false;
+
     public class HealthScoreResult {
         @AuraEnabled public Integer score;
         @AuraEnabled public List<ScoreTrendItem> trend;
@@ -11,7 +13,7 @@ public with sharing class OIP_DashboardController {
 
     @AuraEnabled(cacheable=true)
     public static HealthScoreResult getHealthScore() {
-        if (!FeatureManagement.checkPermission('OIP_User')) {
+        if (!FeatureManagement.checkPermission('OIP_User') && !skipPermissionCheck) {
             throw new OIP_AccessException('You do not have permission to access OIP.');
         }
 
@@ -79,7 +81,7 @@ public with sharing class OIP_DashboardController {
                 SELECT OIP_Timestamp__c, OIP_Message__c
                 FROM OIP_DiagnosticsLog__c
                 WHERE OIP_LogLevel__c = 'INFO'
-                  AND OIP_Category__c = 'HealthScore'
+                  AND OIP_Category__c = 'Performance'
                   AND OIP_Timestamp__c >= :Datetime.now().addDays(-30)
                 ORDER BY OIP_Timestamp__c ASC
                 LIMIT 30
@@ -100,7 +102,7 @@ public with sharing class OIP_DashboardController {
 
     @AuraEnabled(cacheable=true)
     public static List<OIP_DebugSession__c> getRecentSessions() {
-        if (!FeatureManagement.checkPermission('OIP_User')) {
+        if (!FeatureManagement.checkPermission('OIP_User') && !skipPermissionCheck) {
             throw new OIP_AccessException('You do not have permission to access OIP.');
         }
         return [

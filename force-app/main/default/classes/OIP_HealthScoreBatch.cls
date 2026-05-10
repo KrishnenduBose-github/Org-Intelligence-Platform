@@ -59,7 +59,7 @@ public with sharing class OIP_HealthScoreBatch implements Database.Batchable<SOb
             'OIP_HealthScoreBatch',
             'INFO',
             String.valueOf(healthScore),
-            'HealthScore'
+            'Performance'
         );
     }
 }
