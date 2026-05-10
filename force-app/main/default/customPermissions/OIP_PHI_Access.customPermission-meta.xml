@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants access to PHI field data within the Security Debugging workspace (Health Cloud)</description>
+    <label>OIP PHI Access</label>
+    <isProtected>false</isProtected>
+</CustomPermission>
