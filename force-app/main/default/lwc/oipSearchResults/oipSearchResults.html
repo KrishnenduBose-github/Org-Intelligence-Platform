@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 <template for:each={results} for:item="result" for:index="index">
-                    <tr key={result.nodeId} data-index={index} onclick={handleResultClick} class="slds-hint-parent">
+                    <tr key={result.id} data-index={index} onclick={handleResultClick} class="slds-hint-parent">
                         <td>
                             <span class="slds-text-body_regular slds-truncate">{result.fullName}</span>
                         </td>

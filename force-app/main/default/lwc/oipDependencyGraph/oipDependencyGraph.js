@@ -6,10 +6,11 @@ import traverseBFS from '@salesforce/apex/OIP_DependencyGraphEngine.traverseBFS'
 
 export default class OipDependencyGraph extends LightningElement {
     @api startNodeId;
+    @api depth = 3;
     @track nodes = [];
     @track edges = [];
     @track selectedNode;
-    @track isLoading = false;
+    @track isLoading = true;
 
     nodeColors = {
         ApexClass: '#00A1E0',

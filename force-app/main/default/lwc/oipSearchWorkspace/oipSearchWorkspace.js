@@ -26,7 +26,12 @@ export default class OipSearchWorkspace extends LightningElement {
         this.isLoading = true;
         searchComponents({ searchTerm: query })
             .then(data => {
-                this.results = data;
+                this.results = data.map(record => ({
+                    id: record.Id,
+                    fullName: record.OIP_FullName__c,
+                    componentType: record.OIP_ComponentType__c,
+                    severityRating: record.OIP_SeverityRating__c
+                }));
                 this.isLoading = false;
             })
             .catch(error => {

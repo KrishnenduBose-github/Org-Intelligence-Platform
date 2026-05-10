@@ -1,32 +1,50 @@
 === Test Results
-TEST NAME                                              OUTCOME  MESSAGE  RUNTIME (MS)
-─────────────────────────────────────────────────────  ───────  ───────  ────────────
-OIP_DependencyGraphEngineTest.testCalculateSeverity    Pass              55          
-OIP_DependencyGraphEngineTest.testGetNodeByName        Pass              27          
-OIP_DependencyGraphEngineTest.testGetOutgoingEdges     Pass              78          
-OIP_DependencyGraphEngineTest.testSearchNodes          Pass              21          
-OIP_DependencyGraphEngineTest.testTraverseBFS          Pass              77          
-OIP_DependencyGraphEngineTest.testTraverseBFSMaxDepth  Pass              38          
-OIP_DependencyGraphEngineTest.testTraverseReverseBFS   Pass              85          
+TEST NAME                                                            OUTCOME  MESSAGE  RUNTIME (MS)
+───────────────────────────────────────────────────────────────────  ───────  ───────  ────────────
+OIP_DiagnosticsLoggerTest.testBuildLogEntry                          Pass              8           
+OIP_DiagnosticsLoggerTest.testLogAllLevels                           Pass              68          
+OIP_DiagnosticsLoggerTest.testLogBulkExceedsBatchSize                Pass              279         
+OIP_DiagnosticsLoggerTest.testLogBulkScenario                        Pass              145         
+OIP_DiagnosticsLoggerTest.testLogEmptyEntries                        Pass              8           
+OIP_DiagnosticsLoggerTest.testLogNullEntries                         Pass              8           
+OIP_DiagnosticsLoggerTest.testLogSingleEntry                         Pass              38          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLApexClass              Pass              49          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLApexTrigger            Pass              18          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLFlow                   Pass              533         
+OIP_MetadataIndexerServiceTest.testIndexBySOQLUnsupportedType        Pass              69          
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesMultipleTypes  Pass              34          
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithEmpty      Pass              9           
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithNull       Pass              8           
+OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsBulk            Pass              158         
+OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsWithUpdate      Pass              54          
+OIP_DependencyGraphEngineTest.testCalculateSeverity                  Pass              41          
+OIP_DependencyGraphEngineTest.testGetNodeByName                      Pass              19          
+OIP_DependencyGraphEngineTest.testGetOutgoingEdges                   Pass              47          
+OIP_DependencyGraphEngineTest.testSearchNodes                        Pass              19          
+OIP_DependencyGraphEngineTest.testTraverseBFS                        Pass              72          
+OIP_DependencyGraphEngineTest.testTraverseBFSMaxDepth                Pass              34          
+OIP_DependencyGraphEngineTest.testTraverseReverseBFS                 Pass              77          
 
 
-=== Test Setup Time by Test Class for Run 707gL00000pSyZi
-TEST SETUP METHOD NAME                  SETUP TIME
-──────────────────────────────────────  ──────────
-OIP_DependencyGraphEngineTest.makeData  459       
+=== Test Setup Time by Test Class for Run 707gL00000pSzY5
+TEST SETUP METHOD NAME                   SETUP TIME
+───────────────────────────────────────  ──────────
+OIP_DiagnosticsLoggerTest.makeData       119       
+OIP_MetadataIndexerServiceTest.makeData  84        
+OIP_DependencyGraphEngineTest.makeData   317       
 
 
 === Test Summary
 NAME                 VALUE                                      
 ───────────────────  ───────────────────────────────────────────
 Outcome              Passed                                     
-Tests Ran            8                                          
+Tests Ran            26                                         
 Pass Rate            100%                                       
 Fail Rate            0%                                         
 Skip Rate            0%                                         
-Test Run Id          707gL00000pSyZi                            
-Test Setup Time      459 ms                                     
-Test Execution Time  381 ms                                     
-Test Total Time      840 ms                                     
+Test Run Id          707gL00000pSzY5                            
+Test Setup Time      520 ms                                     
+Test Execution Time  1795 ms                                    
+Test Total Time      2315 ms                                    
 Org Id               00DgL00000Nz3aaUAB                         
 Username             krishnendu.bose.71c3f5093136@agentforce.com
