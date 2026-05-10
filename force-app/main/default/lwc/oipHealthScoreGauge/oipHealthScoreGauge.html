@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-text-align_center slds-p-around_medium">
+        <div class={gaugeClass} style={gaugeStyle}>
+            <span class="slds-text-heading_large">{score}</span>
+        </div>
+        <p class="slds-text-heading_small slds-m-top_small">{label}</p>
+        <template if:true={trendData}>
+            <p class="slds-text-body_small slds-text-color_weak">
+                {trendSummary}
+            </p>
+        </template>
+    </div>
+</template>

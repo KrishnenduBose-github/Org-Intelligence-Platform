@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_SourceNodeId__c</fullName>
+    <label>Source Node</label>
+    <referenceTo>OIP_DependencyNode__c</referenceTo>
+    <relationshipLabel>Source Edges</relationshipLabel>
+    <relationshipName>SourceEdges</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

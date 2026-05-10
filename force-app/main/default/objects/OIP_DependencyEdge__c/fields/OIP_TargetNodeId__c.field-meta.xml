@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_TargetNodeId__c</fullName>
+    <label>Target Node</label>
+    <referenceTo>OIP_DependencyNode__c</referenceTo>
+    <relationshipLabel>Target Edges</relationshipLabel>
+    <relationshipName>TargetEdges</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

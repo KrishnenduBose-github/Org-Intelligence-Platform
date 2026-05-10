@@ -1,0 +1,20 @@
+.oip-health-green-dark {
+    background-color: #04844B;
+    color: white;
+}
+.oip-health-green {
+    background-color: #4BC076;
+    color: white;
+}
+.oip-health-yellow {
+    background-color: #FFB75D;
+    color: #333;
+}
+.oip-health-orange {
+    background-color: #FF9B45;
+    color: white;
+}
+.oip-health-red {
+    background-color: #EA001E;
+    color: white;
+}

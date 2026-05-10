@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_Category__c</fullName>
+    <label>Category</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <picklist>
+        <picklistValues>
+            <fullName>Governor</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Security</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Dependency</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Deployment</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Automation</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Performance</fullName>
+            <default>false</default>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+</CustomField>

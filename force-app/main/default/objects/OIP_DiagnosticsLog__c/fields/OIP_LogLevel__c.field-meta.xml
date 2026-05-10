@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_LogLevel__c</fullName>
+    <label>Log Level</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <picklist>
+        <picklistValues>
+            <fullName>DEBUG</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>INFO</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>WARN</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>ERROR</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>FATAL</fullName>
+            <default>false</default>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_DebugSessionId__c</fullName>
+    <label>Debug Session</label>
+    <referenceTo>OIP_DebugSession__c</referenceTo>
+    <relationshipLabel>Log Entries</relationshipLabel>
+    <relationshipName>LogEntries</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

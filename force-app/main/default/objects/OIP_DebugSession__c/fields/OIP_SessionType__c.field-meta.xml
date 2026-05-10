@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_SessionType__c</fullName>
+    <label>Session Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <picklist>
+        <picklistValues>
+            <fullName>Search</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>ImpactAnalysis</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>RootCause</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SecurityDebug</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>DeploymentDebug</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>AutomationConflict</fullName>
+            <default>false</default>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+</CustomField>

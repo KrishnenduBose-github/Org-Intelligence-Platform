@@ -1,0 +1,42 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <h1 class="slds-page-header__title slds-truncate">Org Intelligence Platform</h1>
+                <p class="slds-page-header__name-title">Diagnostics Dashboard</p>
+            </div>
+        </div>
+    </div>
+    <div class="slds-grid slds-grid_vertical-align-center slds-m-around_medium">
+        <div class="slds-col slds-size_1-of-3">
+            <c-oip-health-score-gauge 
+                score={healthScore} 
+                trend-data={scoreTrend}>
+            </c-oip-health-score-gauge>
+        </div>
+        <div class="slds-col slds-size_2-of-3 slds-p-left_large">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={workspaceCards} for:item="card">
+                    <div key={card.id} class="slds-col slds-size_1-of-2 slds-m-bottom_medium">
+                        <lightning-card title={card.title} icon-name={card.icon}>
+                            <div class="slds-p-around_small">
+                                <p>{card.description}</p>
+                            </div>
+                            <a slot="footer" href={card.url} class="slds-card__footer">Open {card.title}</a>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <div class="slds-m-around_medium">
+        <lightning-card title="Recent Sessions">
+            <div class="slds-p-around_small">
+                <c-oip-recent-sessions-list sessions={recentSessions}></c-oip-recent-sessions-list>
+            </div>
+        </lightning-card>
+    </div>
+    <template if:true={hasNoPermission}>
+        <c-oip-permission-gate></c-oip-permission-gate>
+    </template>
+</template>

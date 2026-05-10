@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OIP_CompoundKey__c</fullName>
+    <label>Compound Key</label>
+    <type>Formula</type>
+    <formula>OIP_ComponentType__c + &apos;||&apos; + OIP_FullName__c</formula>
+    <formulaType>Text</formulaType>
+    <treatBlanksAs>BlankAsZero</treatBlanksAs>
+    <externalId>true</externalId>
+</CustomField>
