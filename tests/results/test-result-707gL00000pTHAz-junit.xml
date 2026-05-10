@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2026-05-10T16:16:45.000Z" hostname="https://orgfarm-ac01aa6abd-dev-ed.develop.my.salesforce.com" tests="42" failures="0"  errors="0"  time="5.26">
+        <properties>
+            <property name="outcome" value="Successful"/>
+            <property name="testsRan" value="42"/>
+            <property name="passing" value="42"/>
+            <property name="failing" value="0"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="100%"/>
+            <property name="failRate" value="0%"/>
+            <property name="testStartTime" value="Sun May 10 2026 9:46:45 PM"/>
+            <property name="testSetupTimeInMs" value="1064"/>
+            <property name="testExecutionTime" value="5.26 s"/>
+            <property name="testTotalTime" value="6.32 s"/>
+            <property name="commandTime" value="0.32 s"/>
+            <property name="hostname" value="https://orgfarm-ac01aa6abd-dev-ed.develop.my.salesforce.com"/>
+            <property name="orgId" value="00DgL00000Nz3aaUAB"/>
+            <property name="username" value="krishnendu.bose.71c3f5093136@agentforce.com"/>
+            <property name="testRunId" value="707gL00000pTHAz"/>
+            <property name="userId" value="005gL00000GjLOrQAN"/>
+        </properties>
+        <testcase name="testAnalyzeFailureNotFound" classname="OIP_RootCauseAnalyzerServiceTest" time="0.03">
+        </testcase>
+        <testcase name="testAnalyzeFailureWithErrors" classname="OIP_RootCauseAnalyzerServiceTest" time="0.05">
+        </testcase>
+        <testcase name="testConfidenceScoring" classname="OIP_RootCauseAnalyzerServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testGenerateChecklist" classname="OIP_RootCauseAnalyzerServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testBuildLogEntry" classname="OIP_DiagnosticsLoggerTest" time="0.01">
+        </testcase>
+        <testcase name="testLogAllLevels" classname="OIP_DiagnosticsLoggerTest" time="0.07">
+        </testcase>
+        <testcase name="testLogBulkExceedsBatchSize" classname="OIP_DiagnosticsLoggerTest" time="0.58">
+        </testcase>
+        <testcase name="testLogBulkScenario" classname="OIP_DiagnosticsLoggerTest" time="0.28">
+        </testcase>
+        <testcase name="testLogEmptyEntries" classname="OIP_DiagnosticsLoggerTest" time="0.01">
+        </testcase>
+        <testcase name="testLogNullEntries" classname="OIP_DiagnosticsLoggerTest" time="0.01">
+        </testcase>
+        <testcase name="testLogSingleEntry" classname="OIP_DiagnosticsLoggerTest" time="0.05">
+        </testcase>
+        <testcase name="testIndexBySOQLApexClass" classname="OIP_MetadataIndexerServiceTest" time="0.07">
+        </testcase>
+        <testcase name="testIndexBySOQLApexTrigger" classname="OIP_MetadataIndexerServiceTest" time="0.02">
+        </testcase>
+        <testcase name="testIndexBySOQLFlow" classname="OIP_MetadataIndexerServiceTest" time="0.52">
+        </testcase>
+        <testcase name="testIndexBySOQLUnsupportedType" classname="OIP_MetadataIndexerServiceTest" time="0.08">
+        </testcase>
+        <testcase name="testIndexComponentTypesMultipleTypes" classname="OIP_MetadataIndexerServiceTest" time="0.06">
+        </testcase>
+        <testcase name="testIndexComponentTypesWithEmpty" classname="OIP_MetadataIndexerServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testIndexComponentTypesWithNull" classname="OIP_MetadataIndexerServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testUpsertIndexRecordsBulk" classname="OIP_MetadataIndexerServiceTest" time="0.35">
+        </testcase>
+        <testcase name="testUpsertIndexRecordsWithUpdate" classname="OIP_MetadataIndexerServiceTest" time="0.07">
+        </testcase>
+        <testcase name="testCalculateSeverity" classname="OIP_DependencyGraphEngineTest" time="0.04">
+        </testcase>
+        <testcase name="testGetNodeByName" classname="OIP_DependencyGraphEngineTest" time="0.02">
+        </testcase>
+        <testcase name="testGetOutgoingEdges" classname="OIP_DependencyGraphEngineTest" time="0.04">
+        </testcase>
+        <testcase name="testSearchNodes" classname="OIP_DependencyGraphEngineTest" time="0.02">
+        </testcase>
+        <testcase name="testTraverseBFS" classname="OIP_DependencyGraphEngineTest" time="0.06">
+        </testcase>
+        <testcase name="testTraverseBFSMaxDepth" classname="OIP_DependencyGraphEngineTest" time="0.03">
+        </testcase>
+        <testcase name="testTraverseReverseBFS" classname="OIP_DependencyGraphEngineTest" time="0.06">
+        </testcase>
+        <testcase name="testResolveFieldAccess" classname="OIP_PermissionResolverServiceTest" time="2.01">
+        </testcase>
+        <testcase name="testResolveFieldAccessInvalidField" classname="OIP_PermissionResolverServiceTest" time="0.33">
+        </testcase>
+        <testcase name="testTracePHIAccess" classname="OIP_PermissionResolverServiceTest" time="0.02">
+        </testcase>
+        <testcase name="testTracePHIAccessNoPHI" classname="OIP_PermissionResolverServiceTest" time="0.01">
+        </testcase>
+        <testcase name="testDetectConflictsForObject" classname="OIP_AutomationConflictDetectorTest" time="0.24">
+        </testcase>
+        <testcase name="testDetectConflictsNoAutomation" classname="OIP_AutomationConflictDetectorTest" time="0.03">
+        </testcase>
+        <testcase name="testDetectMissingDependencies" classname="OIP_DeploymentDebuggerServiceTest" time="0.06">
+        </testcase>
+        <testcase name="testGenerateFixActions" classname="OIP_DeploymentDebuggerServiceTest" time="0.01">
+        </testcase>
+    </testsuite>
+</testsuites>

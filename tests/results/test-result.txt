@@ -1,27 +1,71 @@
 === Test Results
-TEST NAME                                                        OUTCOME  MESSAGE  RUNTIME (MS)
-───────────────────────────────────────────────────────────────  ───────  ───────  ────────────
-OIP_DeploymentDebuggerServiceTest.testDetectMissingDependencies  Pass              35          
-OIP_DeploymentDebuggerServiceTest.testGenerateFixActions         Pass              4           
+TEST NAME                                                             OUTCOME  MESSAGE  RUNTIME (MS)
+────────────────────────────────────────────────────────────────────  ───────  ───────  ────────────
+OIP_HealthCloudServiceTest.testGetCarePlanDependencies                Pass              39          
+OIP_HealthCloudServiceTest.testGetConsentDependencies                 Pass              20          
+OIP_HealthCloudServiceTest.testGetEHRDependencies                     Pass              19          
+OIP_HealthCloudServiceTest.testGetPHIFields                           Pass              21          
+OIP_DiagnosticsLoggerTest.testBuildLogEntry                           Pass              13          
+OIP_DiagnosticsLoggerTest.testLogAllLevels                            Pass              53          
+OIP_DiagnosticsLoggerTest.testLogBulkExceedsBatchSize                 Pass              509         
+OIP_DiagnosticsLoggerTest.testLogBulkScenario                         Pass              238         
+OIP_DiagnosticsLoggerTest.testLogEmptyEntries                         Pass              7           
+OIP_DiagnosticsLoggerTest.testLogNullEntries                          Pass              8           
+OIP_DiagnosticsLoggerTest.testLogSingleEntry                          Pass              35          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLApexClass               Pass              56          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLApexTrigger             Pass              16          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLFlow                    Pass              456         
+OIP_MetadataIndexerServiceTest.testIndexBySOQLUnsupportedType         Pass              61          
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesMultipleTypes   Pass              43          
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithEmpty       Pass              8           
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithNull        Pass              8           
+OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsBulk             Pass              366         
+OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsWithUpdate       Pass              50          
+OIP_DependencyGraphEngineTest.testCalculateSeverity                   Pass              34          
+OIP_DependencyGraphEngineTest.testGetNodeByName                       Pass              14          
+OIP_DependencyGraphEngineTest.testGetOutgoingEdges                    Pass              36          
+OIP_DependencyGraphEngineTest.testSearchNodes                         Pass              13          
+OIP_DependencyGraphEngineTest.testTraverseBFS                         Pass              57          
+OIP_DependencyGraphEngineTest.testTraverseBFSMaxDepth                 Pass              24          
+OIP_DependencyGraphEngineTest.testTraverseReverseBFS                  Pass              59          
+OIP_RootCauseAnalyzerServiceTest.testAnalyzeFailureNotFound           Pass              31          
+OIP_RootCauseAnalyzerServiceTest.testAnalyzeFailureWithErrors         Pass              39          
+OIP_RootCauseAnalyzerServiceTest.testConfidenceScoring                Pass              8           
+OIP_RootCauseAnalyzerServiceTest.testGenerateChecklist                Pass              7           
+OIP_PermissionResolverServiceTest.testResolveFieldAccess              Pass              1891        
+OIP_PermissionResolverServiceTest.testResolveFieldAccessInvalidField  Pass              338         
+OIP_PermissionResolverServiceTest.testTracePHIAccess                  Pass              16          
+OIP_PermissionResolverServiceTest.testTracePHIAccessNoPHI             Pass              12          
+OIP_AutomationConflictDetectorTest.testDetectConflictsForObject       Pass              272         
+OIP_AutomationConflictDetectorTest.testDetectConflictsNoAutomation    Pass              37          
+OIP_DeploymentDebuggerServiceTest.testDetectMissingDependencies       Pass              46          
+OIP_DeploymentDebuggerServiceTest.testGenerateFixActions              Pass              10          
 
 
-=== Test Setup Time by Test Class for Run 707gL00000pTCgu
-TEST SETUP METHOD NAME                      SETUP TIME
-──────────────────────────────────────────  ──────────
-OIP_DeploymentDebuggerServiceTest.makeData  177       
+=== Test Setup Time by Test Class for Run 707gL00000pTEKb
+TEST SETUP METHOD NAME                       SETUP TIME
+───────────────────────────────────────────  ──────────
+OIP_HealthCloudServiceTest.makeData          76        
+OIP_DiagnosticsLoggerTest.makeData           132       
+OIP_MetadataIndexerServiceTest.makeData      80        
+OIP_DependencyGraphEngineTest.makeData       383       
+OIP_RootCauseAnalyzerServiceTest.makeData    129       
+OIP_PermissionResolverServiceTest.makeData   57        
+OIP_AutomationConflictDetectorTest.makeData  90        
+OIP_DeploymentDebuggerServiceTest.makeData   121       
 
 
 === Test Summary
 NAME                 VALUE                                      
 ───────────────────  ───────────────────────────────────────────
 Outcome              Passed                                     
-Tests Ran            3                                          
+Tests Ran            47                                         
 Pass Rate            100%                                       
 Fail Rate            0%                                         
 Skip Rate            0%                                         
-Test Run Id          707gL00000pTCgu                            
-Test Setup Time      177 ms                                     
-Test Execution Time  39 ms                                      
-Test Total Time      216 ms                                     
+Test Run Id          707gL00000pTEKb                            
+Test Setup Time      849 ms                                     
+Test Execution Time  4576 ms                                    
+Test Total Time      5425 ms                                    
 Org Id               00DgL00000Nz3aaUAB                         
 Username             krishnendu.bose.71c3f5093136@agentforce.com

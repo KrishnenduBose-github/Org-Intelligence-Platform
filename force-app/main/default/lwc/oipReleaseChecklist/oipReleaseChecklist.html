@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-card title="Release Checklist">
+            <div class="slds-p-around_small">
+                <p class="slds-m-bottom_medium">
+                    <strong>{passedCount}/{totalCount} items passing</strong>
+                    <template if:true={allPassed}>
+                        <lightning-badge class="slds-badge_lightest slds-m-left_small">READY</lightning-badge>
+                    </template>
+                </p>
+                <template for:each={items} for:item="item">
+                    <div key={item.item} class="slds-box slds-box_xx-small slds-m-bottom_x-small slds-grid slds-grid_vertical-align-center">
+                        <div class="slds-col slds-size_1-of-10">
+                            <lightning-icon icon-name={item.statusIcon} size="x-small" variant={item.statusVariant}></lightning-icon>
+                        </div>
+                        <div class="slds-col slds-size_9-of-10">
+                            <p class="slds-text-body_regular">{item.item}</p>
+                            <p class="slds-text-body_small slds-text-color_weak">{item.details}</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

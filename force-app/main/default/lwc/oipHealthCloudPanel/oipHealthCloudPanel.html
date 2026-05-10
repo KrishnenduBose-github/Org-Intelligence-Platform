@@ -1,0 +1,75 @@
+<template>
+    <template if:true={hasNoPermission}><c-oip-permission-gate></c-oip-permission-gate></template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row"><div class="slds-page-header__col-title">
+                <h1 class="slds-page-header__title">Health Cloud Diagnostics</h1>
+                <p class="slds-page-header__name-title">PHI field audit, care plan, consent, and EHR dependencies</p>
+            </div></div>
+        </div>
+        <div class="slds-m-around_medium">
+            <template if:true={isPHIMode}>
+                <button class="slds-button slds-button_brand slds-m-bottom_medium" onclick={handleRefresh}>Refresh Data</button>
+                <template if:true={isLoading}><div class="slds-text-align_center slds-p-around_large"><lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner></div></template>
+                <template if:false={isLoading}>
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-card title="PHI Fields ({phiFields.length})">
+                                <div class="slds-p-around_small">
+                                    <template for:each={phiFields} for:item="field">
+                                        <div key={field.fieldApiName} class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+                                            <p class="slds-text-body_regular">{field.fieldApiName}</p>
+                                            <p class="slds-text-body_small slds-text-color_weak">{field.objectApiName} | Risk: {field.complianceRisk}</p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </lightning-card>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-card title="Care Plan Dependencies ({carePlanDeps.length})">
+                                <div class="slds-p-around_small">
+                                    <template for:each={carePlanDeps} for:item="dep">
+                                        <div key={dep.componentName} class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+                                            <p class="slds-text-body_regular">{dep.componentName}</p>
+                                            <p class="slds-text-body_small">{dep.componentType} | {dep.severity}</p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-card title="Consent Dependencies ({consentDeps.length})">
+                                <div class="slds-p-around_small">
+                                    <template for:each={consentDeps} for:item="dep">
+                                        <div key={dep.componentName} class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+                                            <p class="slds-text-body_regular">{dep.componentName}</p><p class="slds-text-body_small">{dep.componentType} | {dep.severity}</p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </lightning-card>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-card title="EHR Dependencies ({ehrDeps.length})">
+                                <div class="slds-p-around_small">
+                                    <template for:each={ehrDeps} for:item="dep">
+                                        <div key={dep.componentName} class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+                                            <p class="slds-text-body_regular">{dep.componentName}</p><p class="slds-text-body_small">{dep.componentType} | {dep.severity}</p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:false={isPHIMode}>
+                <div class="slds-text-align_center slds-p-around_large">
+                    <p class="slds-text-heading_medium">Health Cloud Mode is disabled</p>
+                    <p class="slds-text-color_weak">Enable PHI Mode in OIP Config to access Health Cloud diagnostics.</p>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

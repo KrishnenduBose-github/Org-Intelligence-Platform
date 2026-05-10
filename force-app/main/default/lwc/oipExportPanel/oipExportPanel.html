@@ -1,0 +1,14 @@
+<template>
+    <template if:true={exportEnabled}>
+        <div class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+            <div class="slds-grid slds-grid_vertical-align-center">
+                <div class="slds-col slds-size_1-of-2">
+                    <span class="slds-text-body_regular">Export Data</span>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                    <lightning-button label="CSV" variant="brand" onclick={handleExportCSV} size="small"></lightning-button>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>
