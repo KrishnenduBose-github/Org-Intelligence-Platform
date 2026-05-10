@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+        <div class="slds-grid slds-grid_vertical-align-center">
+            <div class="slds-col slds-size_1-of-2">
+                <p class="slds-text-body_regular slds-truncate">{sessionName}</p>
+                <p class="slds-text-body_small slds-text-color_weak">{sessionType} &bull; {sessionStatus}</p>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                <template if:true={confidenceScore}>
+                    <lightning-badge class="slds-badge_lightest">{confidenceScore}%</lightning-badge>
+                </template>
+                <lightning-button-icon icon-name="utility:download" variant="bare" alternative-text="Export" onclick={handleExportCSV} size="x-small"></lightning-button-icon>
+            </div>
+        </div>
+    </div>
+</template>

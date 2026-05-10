@@ -1,0 +1,54 @@
+<template>
+    <template if:true={hasNoPermission}>
+        <c-oip-permission-gate></c-oip-permission-gate>
+    </template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <h1 class="slds-page-header__title">Root Cause Analysis</h1>
+                    <p class="slds-page-header__name-title">Debug failures with AI-ranked hypotheses</p>
+                </div>
+            </div>
+        </div>
+        <div class="slds-m-around_medium">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">Describe the failure or enter a component name</label>
+                <div class="slds-form-element__control">
+                    <div class="slds-input-has-icon slds-input-has-icon_right">
+                        <input type="text" class="slds-input" placeholder="e.g. 'Flow UpdateCarePlan is failing' or 'OIP_DiagnosticsLogger'" value={queryText} onchange={handleQueryChange} onkeyup={handleKeyUp} />
+                        <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" onclick={handleAnalyze}>
+                            <lightning-icon icon-name="utility:search" size="x-small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <template if:true={isLoading}>
+                <div class="slds-text-align_center slds-p-around_large">
+                    <lightning-spinner alternative-text="Analyzing" size="medium"></lightning-spinner>
+                    <p class="slds-m-top_small">Analyzing component dependencies and error logs...</p>
+                </div>
+            </template>
+            <template if:true={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-theme_error slds-m-top_medium">
+                    <p>{errorMessage}</p>
+                </div>
+            </template>
+            <template if:true={analysis}>
+                <div class="slds-m-top_medium">
+                    <lightning-card title="Analysis Results">
+                        <div class="slds-p-around_small">
+                            <p><strong>Component:</strong> {analysis.componentName} ({analysis.componentType})</p>
+                            <p><strong>Confidence:</strong> <c-oip-confidence-meter confidence={analysis.overallConfidence}></c-oip-confidence-meter></p>
+                            <p><strong>Summary:</strong> {analysis.summary}</p>
+                        </div>
+                    </lightning-card>
+                </div>
+                <c-oip-hypothesis-list hypotheses={analysis.hypotheses} onhypothesisselect={handleHypothesisSelect}></c-oip-hypothesis-list>
+            </template>
+            <template if:true={checklist}>
+                <c-oip-checklist-viewer items={checklist}></c-oip-checklist-viewer>
+            </template>
+        </div>
+    </template>
+</template>

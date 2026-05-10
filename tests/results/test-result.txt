@@ -1,50 +1,55 @@
 === Test Results
 TEST NAME                                                            OUTCOME  MESSAGE  RUNTIME (MS)
 ───────────────────────────────────────────────────────────────────  ───────  ───────  ────────────
-OIP_DiagnosticsLoggerTest.testBuildLogEntry                          Pass              8           
+OIP_RootCauseAnalyzerServiceTest.testAnalyzeFailureNotFound          Pass              25          
+OIP_RootCauseAnalyzerServiceTest.testAnalyzeFailureWithErrors        Pass              31          
+OIP_RootCauseAnalyzerServiceTest.testConfidenceScoring               Pass              6           
+OIP_RootCauseAnalyzerServiceTest.testGenerateChecklist               Pass              5           
+OIP_DiagnosticsLoggerTest.testBuildLogEntry                          Pass              22          
 OIP_DiagnosticsLoggerTest.testLogAllLevels                           Pass              68          
-OIP_DiagnosticsLoggerTest.testLogBulkExceedsBatchSize                Pass              279         
-OIP_DiagnosticsLoggerTest.testLogBulkScenario                        Pass              145         
-OIP_DiagnosticsLoggerTest.testLogEmptyEntries                        Pass              8           
-OIP_DiagnosticsLoggerTest.testLogNullEntries                         Pass              8           
-OIP_DiagnosticsLoggerTest.testLogSingleEntry                         Pass              38          
-OIP_MetadataIndexerServiceTest.testIndexBySOQLApexClass              Pass              49          
-OIP_MetadataIndexerServiceTest.testIndexBySOQLApexTrigger            Pass              18          
-OIP_MetadataIndexerServiceTest.testIndexBySOQLFlow                   Pass              533         
-OIP_MetadataIndexerServiceTest.testIndexBySOQLUnsupportedType        Pass              69          
-OIP_MetadataIndexerServiceTest.testIndexComponentTypesMultipleTypes  Pass              34          
-OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithEmpty      Pass              9           
-OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithNull       Pass              8           
-OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsBulk            Pass              158         
-OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsWithUpdate      Pass              54          
-OIP_DependencyGraphEngineTest.testCalculateSeverity                  Pass              41          
-OIP_DependencyGraphEngineTest.testGetNodeByName                      Pass              19          
-OIP_DependencyGraphEngineTest.testGetOutgoingEdges                   Pass              47          
-OIP_DependencyGraphEngineTest.testSearchNodes                        Pass              19          
-OIP_DependencyGraphEngineTest.testTraverseBFS                        Pass              72          
-OIP_DependencyGraphEngineTest.testTraverseBFSMaxDepth                Pass              34          
-OIP_DependencyGraphEngineTest.testTraverseReverseBFS                 Pass              77          
+OIP_DiagnosticsLoggerTest.testLogBulkExceedsBatchSize                Pass              293         
+OIP_DiagnosticsLoggerTest.testLogBulkScenario                        Pass              141         
+OIP_DiagnosticsLoggerTest.testLogEmptyEntries                        Pass              9           
+OIP_DiagnosticsLoggerTest.testLogNullEntries                         Pass              9           
+OIP_DiagnosticsLoggerTest.testLogSingleEntry                         Pass              42          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLApexClass              Pass              33          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLApexTrigger            Pass              10          
+OIP_MetadataIndexerServiceTest.testIndexBySOQLFlow                   Pass              420         
+OIP_MetadataIndexerServiceTest.testIndexBySOQLUnsupportedType        Pass              35          
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesMultipleTypes  Pass              32          
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithEmpty      Pass              5           
+OIP_MetadataIndexerServiceTest.testIndexComponentTypesWithNull       Pass              5           
+OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsBulk            Pass              302         
+OIP_MetadataIndexerServiceTest.testUpsertIndexRecordsWithUpdate      Pass              36          
+OIP_DependencyGraphEngineTest.testCalculateSeverity                  Pass              33          
+OIP_DependencyGraphEngineTest.testGetNodeByName                      Pass              16          
+OIP_DependencyGraphEngineTest.testGetOutgoingEdges                   Pass              44          
+OIP_DependencyGraphEngineTest.testSearchNodes                        Pass              17          
+OIP_DependencyGraphEngineTest.testTraverseBFS                        Pass              55          
+OIP_DependencyGraphEngineTest.testTraverseBFSMaxDepth                Pass              27          
+OIP_DependencyGraphEngineTest.testTraverseReverseBFS                 Pass              58          
 
 
-=== Test Setup Time by Test Class for Run 707gL00000pSzY5
-TEST SETUP METHOD NAME                   SETUP TIME
-───────────────────────────────────────  ──────────
-OIP_DiagnosticsLoggerTest.makeData       119       
-OIP_MetadataIndexerServiceTest.makeData  84        
-OIP_DependencyGraphEngineTest.makeData   317       
+=== Test Setup Time by Test Class for Run 707gL00000pTAiW
+TEST SETUP METHOD NAME                     SETUP TIME
+─────────────────────────────────────────  ──────────
+OIP_RootCauseAnalyzerServiceTest.makeData  195       
+OIP_DiagnosticsLoggerTest.makeData         93        
+OIP_MetadataIndexerServiceTest.makeData    40        
+OIP_DependencyGraphEngineTest.makeData     357       
 
 
 === Test Summary
 NAME                 VALUE                                      
 ───────────────────  ───────────────────────────────────────────
 Outcome              Passed                                     
-Tests Ran            26                                         
+Tests Ran            31                                         
 Pass Rate            100%                                       
 Fail Rate            0%                                         
 Skip Rate            0%                                         
-Test Run Id          707gL00000pSzY5                            
-Test Setup Time      520 ms                                     
-Test Execution Time  1795 ms                                    
-Test Total Time      2315 ms                                    
+Test Run Id          707gL00000pTAiW                            
+Test Setup Time      685 ms                                     
+Test Execution Time  1779 ms                                    
+Test Total Time      2464 ms                                    
 Org Id               00DgL00000Nz3aaUAB                         
 Username             krishnendu.bose.71c3f5093136@agentforce.com

@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-m-top_medium">
+        <h2 class="slds-text-heading_small slds-m-bottom_small">Hypotheses</h2>
+        <template for:each={hypotheses} for:item="h" for:index="idx">
+            <div key={h.causeDescription} data-index={idx} onclick={handleSelect} class="slds-box slds-box_xx-small slds-m-bottom_x-small hoverable">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <div class="slds-col slds-size_1-of-6 slds-text-align_center">
+                        <c-oip-confidence-meter confidence={h.confidenceScore}></c-oip-confidence-meter>
+                    </div>
+                    <div class="slds-col slds-size_5-of-6 slds-p-left_small">
+                        <p class="slds-text-body_regular slds-truncate">{h.causeDescription}</p>
+                        <p class="slds-text-body_small slds-text-color_weak">Severity: {h.severity} | {h.recommendation}</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={hypotheses.length}>
+            <p class="slds-text-color_weak">No hypotheses generated yet.</p>
+        </template>
+    </div>
+</template>
