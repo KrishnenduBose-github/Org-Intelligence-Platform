@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Permission Trace Result">
+        <div class="slds-p-around_small">
+            <p><strong>Object:</strong> {trace.objectName} &bull; <strong>Field:</strong> {trace.fieldName}</p>
+            <p><strong>Access Level:</strong> <lightning-badge class={accessColor}>{trace.accessLevel}</lightning-badge></p>
+            <template if:true={hasSources}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead><tr><th>Source Type</th><th>Source Name</th><th>Access</th></tr></thead>
+                    <tbody>
+                        <template for:each={trace.sources} for:item="source">
+                            <tr key={source.sourceName}>
+                                <td>{source.sourceType}</td><td>{source.sourceName}</td><td>{source.accessGranted}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:false={hasSources}>
+                <p class="slds-text-color_weak">No permission sources found. Access may be denied or inherited.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

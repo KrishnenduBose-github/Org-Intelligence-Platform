@@ -1,0 +1,43 @@
+<template>
+    <template if:true={hasNoPermission}><c-oip-permission-gate></c-oip-permission-gate></template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row"><div class="slds-page-header__col-title">
+                <h1 class="slds-page-header__title">Security Debugging</h1>
+                <p class="slds-page-header__name-title">Trace permission chains and identify access issues</p>
+            </div></div>
+        </div>
+        <div class="slds-m-around_medium">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox name="object" label="Object" value={objectName} options={objectOptions} onchange={handleObjectChange}></lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="slds-form-element"><label class="slds-form-element__label">Field Name</label>
+                        <input type="text" class="slds-input" value={fieldName} onchange={handleFieldChange} />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="slds-form-element"><label class="slds-form-element__label">User ID (leave blank for self)</label>
+                        <input type="text" class="slds-input" value={userId} onchange={handleUserIdChange} placeholder={userId} />
+                    </div>
+                </div>
+            </div>
+            <button class="slds-button slds-button_brand slds-m-top_small" onclick={handleTrace}>Trace Permissions</button>
+            <template if:true={isLoading}><div class="slds-text-align_center slds-p-around_large"><lightning-spinner alternative-text="Tracing" size="medium"></lightning-spinner></div></template>
+            <template if:true={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-theme_error slds-m-top_medium"><p>{errorMessage}</p></div>
+            </template>
+            <template if:true={trace}>
+                <div class="slds-m-top_medium">
+                    <c-oip-permission-trace-list trace={trace}></c-oip-permission-trace-list>
+                </div>
+            </template>
+            <template if:true={phiTrace}>
+                <div class="slds-m-top_medium">
+                    <c-oip-phi-warning-banner phi-trace={phiTrace}></c-oip-phi-warning-banner>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,35 @@
+<template>
+    <template if:true={hasNoPermission}><c-oip-permission-gate></c-oip-permission-gate></template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row"><div class="slds-page-header__col-title">
+                <h1 class="slds-page-header__title">Deployment Debugging</h1>
+                <p class="slds-page-header__name-title">Analyze deployment blockers and missing dependencies</p>
+            </div></div>
+        </div>
+        <div class="slds-m-around_medium">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">Components (comma-separated names)</label>
+                <input type="text" class="slds-input" placeholder="e.g. OIP_DiagnosticsLogger, OIP_DashboardController" value={components} onchange={handleComponentsChange} />
+            </div>
+            <div class="slds-form-element slds-m-top_small">
+                <label class="slds-form-element__label">Target Org ID</label>
+                <input type="text" class="slds-input" placeholder="00Dxxxxxxxxxxxx" value={targetOrgId} onchange={handleOrgChange} />
+            </div>
+            <button class="slds-button slds-button_brand slds-m-top_small" onclick={handleAnalyze}>Analyze Deployment</button>
+            <template if:true={isLoading}><div class="slds-text-align_center slds-p-around_large"><lightning-spinner alternative-text="Analyzing" size="medium"></lightning-spinner></div></template>
+            <template if:true={diff}>
+                <div class="slds-m-top_medium">
+                    <lightning-card title="Deployment Analysis">
+                        <div class="slds-p-around_small">
+                            <p><strong>Total Blockers:</strong> {diff.totalBlockers}</p>
+                            <template if:true={diff.missingDependencies}>
+                                <p><strong>Missing Dependencies:</strong> {diff.missingDependencies.length}</p>
+                            </template>
+                        </div>
+                    </lightning-card>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

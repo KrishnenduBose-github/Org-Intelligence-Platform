@@ -1,0 +1,38 @@
+<template>
+    <template if:true={hasNoPermission}><c-oip-permission-gate></c-oip-permission-gate></template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row"><div class="slds-page-header__col-title">
+                <h1 class="slds-page-header__title">Automation Conflicts</h1>
+                <p class="slds-page-header__name-title">Detect overlapping triggers, flows, and validation rules</p>
+            </div></div>
+        </div>
+        <div class="slds-m-around_medium">
+            <div class="slds-form-element">
+                <lightning-combobox name="object" label="Select Object" value={objectName} options={objectOptions} onchange={handleObjectChange}></lightning-combobox>
+            </div>
+            <template if:true={isLoading}><div class="slds-text-align_center slds-p-around_large"><lightning-spinner alternative-text="Analyzing" size="medium"></lightning-spinner></div></template>
+            <template if:true={report}>
+                <div class="slds-m-top_medium">
+                    <lightning-card title={reportTitle}>
+                        <div class="slds-p-around_small">
+                            <p><strong>Total Conflicts:</strong> {report.totalConflicts}</p>
+                            <template for:each={report.triggerConflicts} for:item="tc">
+                                <div key={tc.triggerName} class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+                                    <p class="slds-text-color_error"><strong>{tc.triggerName}</strong></p>
+                                    <p class="slds-text-body_small">{tc.conflictDescription}</p>
+                                </div>
+                            </template>
+                            <template for:each={report.flowConflicts} for:item="fc">
+                                <div key={fc.flowName} class="slds-box slds-box_xx-small slds-m-bottom_x-small">
+                                    <p class="slds-text-color_error"><strong>{fc.flowName}</strong></p>
+                                    <p class="slds-text-body_small">{fc.conflictDescription}</p>
+                                </div>
+                            </template>
+                        </div>
+                    </lightning-card>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

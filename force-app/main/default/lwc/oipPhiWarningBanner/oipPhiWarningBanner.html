@@ -1,0 +1,10 @@
+<template>
+    <template if:true={showWarning}>
+        <div class="slds-notify slds-notify_alert {bannerClass}" role="alert">
+            <span class="slds-assistive-text">Info</span>
+            <h3>PHI Field Detected</h3>
+            <p>This object contains Protected Health Information fields. Access is governed by HIPAA compliance rules.
+               Compliance Risk: {phiTrace.complianceRisk}</p>
+        </div>
+    </template>
+</template>
