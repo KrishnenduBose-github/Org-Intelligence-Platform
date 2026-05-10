@@ -4,6 +4,5 @@
     <label>Query Text</label>
     <length>32768</length>
     <visibleLines>10</visibleLines>
-    <required>true</required>
     <type>LongTextArea</type>
 </CustomField>

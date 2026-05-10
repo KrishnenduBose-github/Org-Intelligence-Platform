@@ -3,6 +3,5 @@
     <fullName>OIP_IsActive__c</fullName>
     <label>Is Active</label>
     <defaultValue>false</defaultValue>
-    <required>true</required>
     <type>Checkbox</type>
 </CustomField>

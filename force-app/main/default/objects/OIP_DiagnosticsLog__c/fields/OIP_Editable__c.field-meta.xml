@@ -3,6 +3,5 @@
     <fullName>OIP_Editable__c</fullName>
     <label>Editable</label>
     <defaultValue>false</defaultValue>
-    <required>true</required>
     <type>Checkbox</type>
 </CustomField>

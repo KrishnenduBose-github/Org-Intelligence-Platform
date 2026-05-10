@@ -4,19 +4,25 @@
     <label>Status</label>
     <required>true</required>
     <type>Picklist</type>
-    <picklist>
-        <picklistValues>
-            <fullName>InProgress</fullName>
-            <default>false</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Completed</fullName>
-            <default>false</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Abandoned</fullName>
-            <default>false</default>
-        </picklistValues>
-        <sorted>false</sorted>
-    </picklist>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>InProgress</fullName>
+                <default>false</default>
+                <label>InProgress</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Abandoned</fullName>
+                <default>false</default>
+                <label>Abandoned</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
 </CustomField>

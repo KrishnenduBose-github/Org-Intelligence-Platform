@@ -4,6 +4,5 @@
     <label>Message</label>
     <length>32768</length>
     <visibleLines>8</visibleLines>
-    <required>true</required>
     <type>LongTextArea</type>
 </CustomField>

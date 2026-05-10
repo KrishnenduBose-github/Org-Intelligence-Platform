@@ -2,5 +2,4 @@
 <CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Full administrative access to OIP including configuration, session management, and export features</description>
     <label>OIP Admin</label>
-    <isProtected>false</isProtected>
 </CustomPermission>

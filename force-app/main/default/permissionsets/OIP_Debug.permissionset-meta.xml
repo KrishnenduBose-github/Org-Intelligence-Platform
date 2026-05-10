@@ -12,49 +12,4 @@
         <name>OIP_Debug</name>
         <enabled>true</enabled>
     </customPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_MetadataIndex__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DependencyNode__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DependencyEdge__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>true</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DebugSession__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>true</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DiagnosticsLog__c</object>
-    </objectPermissions>
 </PermissionSet>

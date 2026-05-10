@@ -3,6 +3,5 @@
     <fullName>OIP_IsEnabled__c</fullName>
     <label>Is Enabled</label>
     <type>Checkbox</type>
-    <required>true</required>
     <defaultValue>true</defaultValue>
 </CustomField>

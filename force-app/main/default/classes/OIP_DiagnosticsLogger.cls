@@ -45,7 +45,10 @@ public with sharing class OIP_DiagnosticsLogger {
         // Chunk into groups of MAX_BULK_SIZE for safe DML
         for (Integer i = 0; i < entries.size(); i += MAX_BULK_SIZE) {
             Integer endIdx = Math.min(i + MAX_BULK_SIZE, entries.size());
-            List<OIP_DiagnosticsLog__c> chunk = entries.subList(i, endIdx);
+            List<OIP_DiagnosticsLog__c> chunk = new List<OIP_DiagnosticsLog__c>();
+            for (Integer j = i; j < endIdx; j++) {
+                chunk.add(entries[j]);
+            }
             Database.insert(chunk, false);
         }
     }
@@ -64,7 +67,7 @@ public with sharing class OIP_DiagnosticsLogger {
         entry.OIP_ServiceName__c = serviceName;
         entry.OIP_LogLevel__c = level;
         entry.OIP_Message__c = message;
-        entry.OIP_ComponentReference__c = componentRef;
+        entry.OIP_ComponentRef__c = componentRef;
         entry.OIP_Timestamp__c = Datetime.now();
         entry.OIP_StackHash__c = generateStackHash(serviceName, level, message);
         return entry;
@@ -73,7 +76,7 @@ public with sharing class OIP_DiagnosticsLogger {
     /**
      * @description Retrieves all log entries for a given session, ordered
      *              by most recent first. Capped at 500 to avoid heap limits.
-     * @param sessionId  The OIP_SessionId__c value to filter on
+     * @param sessionId  The OIP_DebugSessionId__c value to filter on
      * @return           List of matching OIP_DiagnosticsLog__c records
      */
     public static List<OIP_DiagnosticsLog__c> getSessionLogs(Id sessionId) {
@@ -83,10 +86,10 @@ public with sharing class OIP_DiagnosticsLogger {
 
         return [
             SELECT Id, OIP_ServiceName__c, OIP_LogLevel__c, OIP_Message__c,
-                   OIP_ComponentReference__c, OIP_Timestamp__c, OIP_StackHash__c,
-                   OIP_SessionId__c
+                   OIP_ComponentRef__c, OIP_Timestamp__c, OIP_StackHash__c,
+                   OIP_DebugSessionId__c
             FROM OIP_DiagnosticsLog__c
-            WHERE OIP_SessionId__c = :sessionId
+            WHERE OIP_DebugSessionId__c = :sessionId
             ORDER BY OIP_Timestamp__c DESC
             LIMIT 500
         ];
@@ -108,7 +111,7 @@ public with sharing class OIP_DiagnosticsLogger {
         List<AggregateResult> duplicates = [
             SELECT OIP_StackHash__c, COUNT(Id) cnt
             FROM OIP_DiagnosticsLog__c
-            WHERE OIP_SessionId__c = :sessionId
+            WHERE OIP_DebugSessionId__c = :sessionId
               AND OIP_StackHash__c != null
             GROUP BY OIP_StackHash__c
             HAVING COUNT(Id) > 1
@@ -127,7 +130,7 @@ public with sharing class OIP_DiagnosticsLogger {
         List<OIP_DiagnosticsLog__c> allLogs = [
             SELECT Id, OIP_StackHash__c, OIP_Timestamp__c
             FROM OIP_DiagnosticsLog__c
-            WHERE OIP_SessionId__c = :sessionId
+            WHERE OIP_DebugSessionId__c = :sessionId
               AND OIP_StackHash__c IN :hashSet
             ORDER BY OIP_Timestamp__c DESC
         ];
@@ -147,7 +150,11 @@ public with sharing class OIP_DiagnosticsLogger {
         // Batch delete in chunks of MAX_BULK_SIZE
         for (Integer i = 0; i < toDelete.size(); i += MAX_BULK_SIZE) {
             Integer endIdx = Math.min(i + MAX_BULK_SIZE, toDelete.size());
-            Database.delete(toDelete.subList(i, endIdx), false);
+            List<OIP_DiagnosticsLog__c> chunk = new List<OIP_DiagnosticsLog__c>();
+            for (Integer j = i; j < endIdx; j++) {
+                chunk.add(toDelete[j]);
+            }
+            Database.delete(chunk, false);
         }
 
         return toDelete.size();

@@ -12,51 +12,6 @@
         <name>OIP_Debug</name>
         <enabled>true</enabled>
     </customPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_MetadataIndex__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DependencyNode__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DependencyEdge__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>true</allowEdit>
-        <allowDelete>true</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DebugSession__c</object>
-    </objectPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>true</allowCreate>
-        <allowEdit>true</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_DiagnosticsLog__c</object>
-    </objectPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>OIP_DebugSession__c.OIP_QueryText__c</field>
@@ -77,8 +32,4 @@
         <field>OIP_DiagnosticsLog__c.OIP_Message__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <tabSettings>
-        <tab>OIP_MetadataIndex__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabSettings>
 </PermissionSet>

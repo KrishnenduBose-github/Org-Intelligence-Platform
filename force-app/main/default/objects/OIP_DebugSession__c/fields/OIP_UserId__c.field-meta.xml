@@ -5,6 +5,7 @@
     <referenceTo>User</referenceTo>
     <relationshipLabel>Debug Sessions</relationshipLabel>
     <relationshipName>DebugSessions</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <type>Lookup</type>
+    <deleteConstraint>SetNull</deleteConstraint>
 </CustomField>

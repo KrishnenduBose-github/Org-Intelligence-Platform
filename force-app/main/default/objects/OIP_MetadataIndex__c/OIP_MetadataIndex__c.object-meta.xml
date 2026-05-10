@@ -4,6 +4,7 @@
     <label>Metadata Index</label>
     <pluralLabel>Metadata Indices</pluralLabel>
     <nameField>
+        <label>Index ID</label>
         <displayFormat>META-{0000}</displayFormat>
         <startingNumber>1</startingNumber>
         <type>AutoNumber</type>

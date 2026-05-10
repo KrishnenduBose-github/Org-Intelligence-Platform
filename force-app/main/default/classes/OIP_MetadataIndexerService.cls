@@ -1,6 +1,6 @@
 /**
  * @description Service layer responsible for indexing Salesforce metadata components
- *              into OIP_MetadataIndex__c records. Supports ApexClass, Flow, and
+ *              into OIP_MetadataIndex__c records. Supports ApexClass, and
  *              ApexTrigger types with SOQL-based retrieval and bulkified upserts.
  * @see OIP_MetadataIndex__c
  */
@@ -15,7 +15,7 @@ public with sharing class OIP_MetadataIndexerService {
     /**
      * @description Iterates over a set of component types and indexes each one
      *              individually via indexBySOQL.
-     * @param types  Set of component type strings (e.g. 'ApexClass', 'Flow', 'ApexTrigger')
+     * @param types  Set of component type strings (e.g. 'ApexClass', 'ApexTrigger')
      */
     public static void indexComponentTypes(Set<String> types) {
         if (types == null || types.isEmpty()) {
@@ -40,16 +40,11 @@ public with sharing class OIP_MetadataIndexerService {
      * @description Queries metadata tooling API tables for the given component type,
      *              builds OIP_MetadataIndex__c records, and upserts them using
      *              the OIP_CompoundKey__c external ID.
-     * @param componentType  The metadata type to index (ApexClass, Flow, ApexTrigger)
+     * @param componentType  The metadata type to index (ApexClass, ApexTrigger)
      * @return               The number of records indexed
      */
     public static Integer indexBySOQL(String componentType) {
         if (String.isBlank(componentType)) {
-            return 0;
-        }
-
-        if (!Schema.sObjectType.OIP_MetadataIndex__c.isCreateable()
-            || !Schema.sObjectType.OIP_MetadataIndex__c.isUpdateable()) {
             return 0;
         }
 
@@ -71,50 +66,32 @@ public with sharing class OIP_MetadataIndexerService {
                 }
             }
             when 'Flow' {
-                // Flow requires offset-based pagination due to potential volume
-                Integer offset = 0;
-                Boolean hasMore = true;
-
-                while (hasMore) {
-                    List<Flow> flows = [
-                        SELECT Id, FullName, NamespacePrefix, Status, VersionNumber, Description
-                        FROM Flow
-                        WHERE NamespacePrefix = null
-                        ORDER BY FullName
-                        LIMIT :BATCH_SIZE
-                        OFFSET :offset
-                    ];
-
-                    if (flows.isEmpty()) {
-                        hasMore = false;
-                    } else {
-                        for (Flow f : flows) {
-                            indexRecords.add(buildIndexRecord(
-                                'Flow',
-                                f.FullName,
-                                f.NamespacePrefix,
-                                String.valueOf(f.Status)
-                            ));
-                        }
-                        offset += BATCH_SIZE;
-                        // Guard against OFFSET limit of 2000
-                        if (offset >= 2000 || flows.size() < BATCH_SIZE) {
-                            hasMore = false;
-                        }
-                    }
+                // Flow is indexed via its own path
+                for (FlowDefinitionView fdv : [
+                    SELECT Id, ApiName, Description
+                    FROM FlowDefinitionView
+                    LIMIT 2000
+                ]) {
+                    indexRecords.add(buildIndexRecord(
+                        'Flow',
+                        fdv.ApiName,
+                        '',
+                        'Active'
+                    ));
                 }
             }
             when 'ApexTrigger' {
                 for (ApexTrigger trig : [
-                    SELECT Id, Name, NamespacePrefix, Status, ApiVersion, EntityDefinition.Name
+                    SELECT Id, Name, NamespacePrefix, TableEnumOrId, Status
                     FROM ApexTrigger
                     WHERE NamespacePrefix = null
+                    LIMIT 2000
                 ]) {
                     indexRecords.add(buildIndexRecord(
                         'ApexTrigger',
                         trig.Name,
                         trig.NamespacePrefix,
-                        trig.Status
+                        String.valueOf(trig.Status)
                     ));
                 }
             }
@@ -151,7 +128,10 @@ public with sharing class OIP_MetadataIndexerService {
 
         for (Integer i = 0; i < records.size(); i += BATCH_SIZE) {
             Integer endIdx = Math.min(i + BATCH_SIZE, records.size());
-            List<OIP_MetadataIndex__c> chunk = records.subList(i, endIdx);
+            List<OIP_MetadataIndex__c> chunk = new List<OIP_MetadataIndex__c>();
+            for (Integer j = i; j < endIdx; j++) {
+                chunk.add(records[j]);
+            }
             try {
                 Database.upsert(chunk, compoundKeyField, false);
             } catch (DmlException e) {
@@ -178,7 +158,7 @@ public with sharing class OIP_MetadataIndexerService {
         OIP_MetadataIndex__c record = new OIP_MetadataIndex__c();
         record.OIP_ComponentType__c = type;
         record.OIP_FullName__c = fullName;
-        record.OIP_Namespace__c = namespace;
+        record.OIP_NamespacePrefix__c = namespace;
         record.OIP_Status__c = status;
 
         // Build compound key: TYPE__NAME__NS for unique identification

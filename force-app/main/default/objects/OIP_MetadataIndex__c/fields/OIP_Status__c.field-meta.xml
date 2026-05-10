@@ -4,23 +4,30 @@
     <label>Status</label>
     <required>true</required>
     <type>Picklist</type>
-    <picklist>
-        <sorted>false</sorted>
-        <picklistValues>
-            <fullName>Active</fullName>
-            <default>false</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Deprecated</fullName>
-            <default>false</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Draft</fullName>
-            <default>false</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Error</fullName>
-            <default>false</default>
-        </picklistValues>
-    </picklist>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Deprecated</fullName>
+                <default>false</default>
+                <label>Deprecated</label>
+            </value>
+            <value>
+                <fullName>Draft</fullName>
+                <default>false</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
 </CustomField>

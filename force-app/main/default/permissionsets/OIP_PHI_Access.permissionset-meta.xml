@@ -8,23 +8,4 @@
         <name>OIP_PHI_Access</name>
         <enabled>true</enabled>
     </customPermissions>
-    <objectPermissions>
-        <allowRead>true</allowRead>
-        <allowCreate>false</allowCreate>
-        <allowEdit>false</allowEdit>
-        <allowDelete>false</allowDelete>
-        <viewAllRecords>false</viewAllRecords>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>OIP_MetadataIndex__c</object>
-    </objectPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OIP_MetadataIndex__c.OIP_IsPHI__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OIP_MetadataIndex__c.OIP_IsEncrypted__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 </PermissionSet>

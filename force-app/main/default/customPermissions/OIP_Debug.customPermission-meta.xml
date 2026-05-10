@@ -2,5 +2,4 @@
 <CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Access to Root Cause, Security Debugging, Deployment Debugging, and Automation Conflict workspaces</description>
     <label>OIP Debug</label>
-    <isProtected>false</isProtected>
 </CustomPermission>

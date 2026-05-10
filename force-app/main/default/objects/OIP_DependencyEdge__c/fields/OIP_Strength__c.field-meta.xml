@@ -4,15 +4,20 @@
     <label>Strength</label>
     <required>true</required>
     <type>Picklist</type>
-    <picklist>
-        <picklistValues>
-            <fullName>Strong</fullName>
-            <default>false</default>
-        </picklistValues>
-        <picklistValues>
-            <fullName>Weak</fullName>
-            <default>false</default>
-        </picklistValues>
-        <sorted>false</sorted>
-    </picklist>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Strong</fullName>
+                <default>false</default>
+                <label>Strong</label>
+            </value>
+            <value>
+                <fullName>Weak</fullName>
+                <default>false</default>
+                <label>Weak</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
 </CustomField>

@@ -3,6 +3,5 @@
     <fullName>OIP_HealthCloudMode__c</fullName>
     <label>Health Cloud Mode</label>
     <type>Checkbox</type>
-    <required>true</required>
     <defaultValue>false</defaultValue>
 </CustomField>
