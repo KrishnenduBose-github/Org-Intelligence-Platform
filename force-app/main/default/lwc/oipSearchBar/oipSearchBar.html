@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-form-element slds-m-bottom_medium">
+        <div class="slds-grid slds-grid_vertical-align-center">
+            <div class="slds-col slds-size_2-of-3 slds-p-right_small">
+                <div class="slds-input-has-icon slds-input-has-icon_left-right">
+                    <lightning-icon icon-name="standard:search" size="x-small" slot="left-icon"></lightning-icon>
+                    <input type="text" class="slds-input" placeholder={placeholder} value={queryText}
+                           onchange={handleQueryChange} onkeyup={handleKeyUp} />
+                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" onclick={handleSearch}>
+                        <lightning-icon icon-name="utility:search" size="x-small"></lightning-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-combobox name="componentType" label="" value={selectedType} placeholder="Component Type"
+                                    options={typeOptions} onchange={handleTypeChange}>
+                </lightning-combobox>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,38 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="slds-text-align_center slds-p-around_large">
+            <lightning-spinner alternative-text="Searching" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <template if:true={hasResults}>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Severity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={results} for:item="result" for:index="index">
+                    <tr key={result.nodeId} data-index={index} onclick={handleResultClick} class="slds-hint-parent">
+                        <td>
+                            <span class="slds-text-body_regular slds-truncate">{result.fullName}</span>
+                        </td>
+                        <td>
+                            <lightning-badge class="slds-badge_lightest">{result.componentType}</lightning-badge>
+                        </td>
+                        <td>
+                            <span class={severityBadgeClass}>{result.severityRating}</span>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+    <template if:true={isEmpty}>
+        <div class="slds-text-align_center slds-p-around_large slds-text-color_weak">
+            <p>No results found. Try a different search term.</p>
+        </div>
+    </template>
+</template>

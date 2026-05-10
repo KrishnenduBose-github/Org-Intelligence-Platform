@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2026-05-10T15:33:07.000Z" hostname="https://orgfarm-ac01aa6abd-dev-ed.develop.my.salesforce.com" tests="8" failures="8"  errors="0"  time="0.00">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="8"/>
+            <property name="passing" value="0"/>
+            <property name="failing" value="8"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="0%"/>
+            <property name="failRate" value="100%"/>
+            <property name="testStartTime" value="Sun May 10 2026 9:03:07 PM"/>
+            <property name="testSetupTimeInMs" value="160"/>
+            <property name="testExecutionTime" value="0.00 s"/>
+            <property name="testTotalTime" value="0.16 s"/>
+            <property name="commandTime" value="0.38 s"/>
+            <property name="hostname" value="https://orgfarm-ac01aa6abd-dev-ed.develop.my.salesforce.com"/>
+            <property name="orgId" value="00DgL00000Nz3aaUAB"/>
+            <property name="username" value="krishnendu.bose.71c3f5093136@agentforce.com"/>
+            <property name="testRunId" value="707gL00000pSaM3"/>
+            <property name="userId" value="005gL00000GjLOrQAN"/>
+        </properties>
+        <testcase name="testCalculateSeverity" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+        <testcase name="testGetNodeByName" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+        <testcase name="testGetOutgoingEdges" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+        <testcase name="testSearchNodes" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+        <testcase name="testTraverseBFS" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+        <testcase name="testTraverseBFSMaxDepth" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+        <testcase name="testTraverseReverseBFS" classname="OIP_DependencyGraphEngineTest" time="0.00">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [OIP_MetadataIndexId__c]: [OIP_MetadataIndexId__c]"><![CDATA[Class.OIP_DependencyGraphEngineTest.makeData: line 10, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

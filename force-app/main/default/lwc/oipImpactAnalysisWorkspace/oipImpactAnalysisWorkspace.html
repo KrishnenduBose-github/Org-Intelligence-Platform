@@ -1,0 +1,35 @@
+<template>
+    <template if:true={hasNoPermission}>
+        <c-oip-permission-gate></c-oip-permission-gate>
+    </template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <h1 class="slds-page-header__title slds-truncate">Impact Analysis</h1>
+                    <p class="slds-page-header__name-title">Trace dependency chains and understand impact</p>
+                </div>
+            </div>
+        </div>
+        <div class="slds-m-around_medium">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">Search for a component</label>
+                <c-oip-search-bar onsearchsubmit={handleComponentSearch}></c-oip-search-bar>
+            </div>
+            <template if:true={startNodeId}>
+                <div class="slds-m-top_medium">
+                    <c-oip-dependency-graph start-node-id={startNodeId} onnodeselect={handleNodeSelect}></c-oip-dependency-graph>
+                </div>
+            </template>
+            <template if:true={selectedComponent}>
+                <lightning-card title="Component Detail" class="slds-m-top_medium">
+                    <div class="slds-p-around_small">
+                        <p><strong>Name:</strong> {selectedComponent.fullName}</p>
+                        <p><strong>Type:</strong> {selectedComponent.componentType}</p>
+                        <p><strong>Severity:</strong> {selectedComponent.severityRating}</p>
+                    </div>
+                </lightning-card>
+            </template>
+        </div>
+    </template>
+</template>

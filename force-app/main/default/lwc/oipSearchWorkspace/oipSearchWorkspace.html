@@ -1,0 +1,19 @@
+<template>
+    <template if:true={hasNoPermission}>
+        <c-oip-permission-gate></c-oip-permission-gate>
+    </template>
+    <template if:false={hasNoPermission}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <h1 class="slds-page-header__title slds-truncate">Search</h1>
+                    <p class="slds-page-header__name-title">Search across all org metadata</p>
+                </div>
+            </div>
+        </div>
+        <div class="slds-m-around_medium">
+            <c-oip-search-bar component-types={componentTypes} onsearchsubmit={handleSearchSubmit}></c-oip-search-bar>
+            <c-oip-search-results results={results} is-loading={isLoading} onresultselect={handleResultSelect}></c-oip-search-results>
+        </div>
+    </template>
+</template>

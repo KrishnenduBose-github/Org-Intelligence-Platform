@@ -1,0 +1,29 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="slds-text-align_center slds-p-around_large">
+            <lightning-spinner alternative-text="Loading graph" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <template if:false={isLoading}>
+        <template if:false={isEmptyGraph}>
+            <div class="slds-scrollable_x">
+                <div class="oip-graph-canvas" style="min-height: 300px; position: relative; padding: 16px;">
+                    <template for:each={nodes} for:item="node" for:index="idx">
+                        <div key={node.nodeId} class="oip-graph-node" data-node-id={node.nodeId} onclick={handleNodeClick}
+                             style="position: absolute; cursor: pointer;">
+                            <div class="slds-box slds-box_xx-small">
+                                <div class="slds-text-body_small slds-truncate" title={node.fullName}>{node.fullName}</div>
+                                <div class="slds-text-color_weak" style="font-size: 0.65rem;">{node.componentType}</div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template if:true={isEmptyGraph}>
+            <div class="slds-text-align_center slds-p-around_large slds-text-color_weak">
+                <p>No dependency graph data available for this component.</p>
+            </div>
+        </template>
+    </template>
+</template>
